@@ -1,6 +1,7 @@
 let food = [];
 let totalAmount = 0;
 
+//The code dynamically adjusts the alignment of the navigation menu based on the document's width. If the width is less than or equal to 992 pixels, it sets the navigation menu to be right-aligned (mr-auto). Otherwise, it sets it to be left-aligned (ml-auto).
 $(document).ready(function () {
   if ($(document).width() <= 992) {
     $(".navbar-nav").removeClass("ml-auto");
@@ -10,6 +11,8 @@ $(document).ready(function () {
     $(".navbar-nav").addClass("ml-auto");
   }
 
+
+  //The code is designed to show or hide a button (scrollToTopBtn) based on the user's scroll position. If the user has scrolled more than 300 pixels down the page, the button is shown; otherwise, it is hidden.
   var scrollToTopBtn = $("#scrollToTop");
 
   $(window).scroll(function () {
@@ -20,6 +23,11 @@ $(document).ready(function () {
     }
   });
 
+
+//When the "scrollToTopBtn" is clicked, the default behavior (navigating to the top) is prevented.
+//Instead, the page smoothly scrolls to the top using the animate function, providing a visually appealing and user-friendly scrolling experience.
+//The duration of the scrolling animation is set to 500 milliseconds ("500"). Adjusting this value will change the speed of the scroll.
+
   scrollToTopBtn.on("click", function (event) {
     event.preventDefault();
     $("html, body").animate(
@@ -29,6 +37,11 @@ $(document).ready(function () {
       "500"
     );
   });
+
+
+//Clicking a navigation link in the ".navbar" triggers smooth scrolling to the corresponding section on the page.
+//The script checks if the link has a valid hash value before preventing the default behavior.
+//The scrolling animation takes 800 milliseconds and updates the URL with the hash when finished.
 
   $(".navbar a").on("click", function (event) {
     // Make sure this.hash has a value before overriding default behavior
@@ -54,6 +67,10 @@ $(document).ready(function () {
     } // End if
   });
 
+
+//Clicking an element with the "homeBtn" class triggers smooth scrolling to the corresponding section on the page.
+//The script checks if the element has a valid hash value before preventing the default behavior.
+//The scrolling animation takes 800 milliseconds and updates the URL with the hash when finished.
   $(".homeBtn").click(function (event) {
     if (this.hash !== "") {
       event.preventDefault();
@@ -71,6 +88,8 @@ $(document).ready(function () {
       );
     }
   });
+
+
 
   $(".product-box-layout4").click(function () {
     $(this)
