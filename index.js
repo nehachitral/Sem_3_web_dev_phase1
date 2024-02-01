@@ -1,11 +1,14 @@
-let food = [];
-let totalAmount = 0;
+let food = [];/* Arrays are used to store collections of items*/
+let totalAmount = 0;/*totalAmount and initializes it to 0*/
 
-$(document).ready(function () {
+$(document).ready(function ()
+/*This line begins a function that will be executed when the HTML document is fully loaded.*/
+{
   if ($(document).width() <= 992) {
     $(".navbar-nav").removeClass("ml-auto");
     $(".navbar-nav").addClass("mr-auto");
   } else {
+     /*If the document width is greater than 992 pixels, the code executes this block.*/
     $(".navbar-nav").removeClass("mr-auto");
     $(".navbar-nav").addClass("ml-auto");
   }
@@ -13,7 +16,8 @@ $(document).ready(function () {
   var scrollToTopBtn = $("#scrollToTop");
 
   $(window).scroll(function () {
-    if ($(window).scrollTop() > 300) {
+    if ($(window).scrollTop() > 300)/* If the user has scrolled more than 300 pixels down the page, the condition is true.*/
+    {
       scrollToTopBtn.addClass("show");
     } else {
       scrollToTopBtn.removeClass("show");
@@ -58,6 +62,8 @@ $(document).ready(function () {
     if (this.hash !== "") {
       event.preventDefault();
       let hash = this.hash;
+      /*This line captures the fragment identifier from the clicked link, 
+      which will be used for scrolling to the corresponding section on the page.*/
 
       $("html, body").animate(
         {
@@ -111,7 +117,7 @@ $(document).ready(function () {
       );
     }
   });
-
+/* Handling Clicks on Menu Buttons*/
   $(".menuBtn").click(function () {
     let quantity = $(this).siblings(".quantity");
     let foodNameClicked = quantity
@@ -151,7 +157,13 @@ $(document).ready(function () {
       }
     }
   });
-
+/*Cart Handling Function:
+foodAlreadyThere: This variable is initialized as false. 
+It will be used to check if the selected food item is already present in the shopping cart.
+foodPos: This variable will store the position (index) of the food item in the cart array.
+node: This variable is initialized to store an HTML string representing an image tag. It will be either a "veg" or "nonVeg" icon based on the isVeg parameter.
+javascript
+*/
   function ToCart(foodNameClicked, foodQuantity, isVeg, singleFoodAmount) {
     let foodAlreadyThere = false;
     let foodPos;
@@ -161,6 +173,12 @@ $(document).ready(function () {
     } else {
       node = '<img class="nonVegIcon" src="./images/non-veg.webp" alt="" />';
     }
+    /* this code block efficiently determines whether a food item is already present in the shopping cart. 
+    If it is, it updates the existing entry with new information. If it's not present,
+    a new entry is added to the cart.
+    This logic ensures that the food array accurately reflects the current state of the user's
+    shopping cart.*/
+    
     for (var i = 0; i < food.length; i++) {
       if (food[i][0] === foodNameClicked) {
         foodAlreadyThere = true;
