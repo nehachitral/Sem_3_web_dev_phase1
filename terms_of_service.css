@@ -6,7 +6,7 @@ body {
   /* *********************************** Navbar Section ********************************************/
   .navbar-expand-lg {
     background-color: #000000;
-    z-index: 2;
+    z-index: 2;/*the navigation bar is given a z-index of 2*/
     height: 74px;
   }
   
@@ -16,7 +16,7 @@ body {
     /* font-size: 0.5rem; */
     font-family: "Roboto";
     font-weight: 500;
-    font-size: 3.5rem;
+    font-size: 3.5rem;/*1rem is equal to the font size of the root element.*/
   }
   .nav-item /* for each navbar item */ {
     font-size: 1.1rem;
@@ -26,8 +26,11 @@ body {
   
   header {
     display: flex;
+      /* property is used to create a flex container.
+     The flex layout is designed to provide an efficient way to distribute space and align items within a container,
+      even when their size is unknown or dynamic*/
     align-items: center;
-    justify-content: center;
+    justify-content: center;/* property aligns flex items along the main axis*/
     font-family: "Franklin Gothic Heavy", "Arial Narrow", Arial, sans-serif;
     font-size: 32px;
     margin-top: -10px;
@@ -37,9 +40,12 @@ body {
   }
   .content {
     display: flex;
-    flex-direction: row;
+    flex-direction: row;/*property determines the direction of the main axis */
     word-wrap: normal;
-  }
+      /*Both word-wrap and overflow-wrap are used to achieve the same result,
+      ensuring that words can break and wrap onto the next line to prevent overflow 
+      beyond the container boundaries.*/
+}
   li {
     /* padding: 10px; */
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -49,7 +55,9 @@ body {
     padding: 10px;
   }
   
-  @media screen and (max-width: 992px){
+  @media screen and (max-width: 992px)
+ /* targets screens with a maximum width of 992 pixels.*/
+{
     .navbar-nav{
     background-color: #FFC107;
     text-align: right;
