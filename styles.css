@@ -21,7 +21,7 @@ body {
     text-align: center;
     opacity: 0.8;
     background-color: #000000;
-    z-index: 99;
+    z-index: 99;/* This sets the stacking order. Elements with higher z-index values appear on top. */
   }
   
   p {
